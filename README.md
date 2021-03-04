@@ -15,6 +15,11 @@ sudo usermod -aG docker $USER
 id
 ```
 
+## Crie uma pasta em ~/docker
+```sh
+mkdir ~/docker
+```
+
 ## Instale o Docker junto com o Docker-Compose
 ```sh
 sudo apt-get install docker.io docker-compose
