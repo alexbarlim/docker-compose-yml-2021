@@ -45,7 +45,7 @@ services:
       - TZ=${TZ} # timezone, defined in .env
     volumes:
       - ${FOLDERUSER}/config/sonarr:/config # config files
-      - ${FOLDERHD}/tvseries:/tv # tv shows folder
+      - ${FOLDERHD}/tvseries:/tvseries # tv shows folder
       - ${FOLDERHD}/downloads:/downloads # download folder
 
   radarr:
@@ -87,6 +87,6 @@ services:
     volumes:
       - ${FOLDERUSER}/config/bazarr:/config # config files
       - ${FOLDERHD}/movies:/movies # movies folder
-      - ${FOLDERHD}/tv:/tv # tv shows folder
+      - ${FOLDERHD}/tvseries:/tvseries # tv shows folder
     ports:
       - 6767:6767

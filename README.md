@@ -1,10 +1,5 @@
 # docker-compose.yml (2021)
 
-## Instale o Docker junto com o Docker-Compose
-```sh
-sudo apt-get docker.io docker-compose
-```
-
 ## Crie o grupo Docker
 ```sh
 sudo groupadd docker
@@ -15,14 +10,14 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 ```
 
-## Veja se está dentro do grupo
+## Reinicie e veja se está dentro do grupo
 ```sh
 id
 ```
 
-## Reinicie e siga
+## Instale o Docker junto com o Docker-Compose
 ```sh
-su -s ${USER}
+sudo apt-get install docker.io docker-compose
 ```
 
 ## Teste se funciona sem sudo
