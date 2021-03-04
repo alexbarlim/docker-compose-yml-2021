@@ -12,8 +12,8 @@ services:
       - USER=username #optional
       - PASS=password #optional
     volumes:
-      - ${USER}/config/transmission/data:/config
-      - ${HD}/downloads:/downloads
+      - ${FOLDERUSER}/config/transmission/data:/config
+      - ${FOLDERHD}/downloads:/downloads
     ports:
       - 9091:9091
       - 51413:51413
@@ -31,8 +31,8 @@ services:
       - PGID=${PGID} # default group id, defined in .env
       - TZ=${TZ} # timezone, defined in .env
     volumes:
-      - ${HD}/downloads/torrent-blackhole:/downloads # place where to put .torrent files for manual download
-      - ${USER}/config/jackett:/config # config files
+      - ${FOLDERHD}/downloads/torrent-blackhole:/downloads # place where to put .torrent files for manual download
+      - ${FOLDERUSER}/config/jackett:/config # config files
 
   sonarr:
     container_name: sonarr
@@ -44,9 +44,9 @@ services:
       - PGID=${PGID} # default group id, defined in .env
       - TZ=${TZ} # timezone, defined in .env
     volumes:
-      - ${USER}/config/sonarr:/config # config files
-      - ${HD}/tvseries:/tv # tv shows folder
-      - ${HD}/downloads:/downloads # download folder
+      - ${FOLDERUSER}/config/sonarr:/config # config files
+      - ${FOLDERHD}/tvseries:/tv # tv shows folder
+      - ${FOLDERHD}/downloads:/downloads # download folder
 
   radarr:
     container_name: radarr
@@ -58,9 +58,9 @@ services:
       - PGID=${PGID} # default group id, defined in .env
       - TZ=${TZ} # timezone, defined in .env
     volumes:
-      - ${USER}/config/radarr:/config # config files
-      - ${HD}/movies:/movies # movies folder
-      - ${HD}/downloads:/downloads # download folder
+      - ${FOLDERUSER}/config/radarr:/config # config files
+      - ${FOLDERHD}/movies:/movies # movies folder
+      - ${FOLDERHD}/downloads:/downloads # download folder
 
   plex-server:
     container_name: plex-server
@@ -70,9 +70,9 @@ services:
       - TZ=${TZ} # timezone, defined in .env
     network_mode: host
     volumes:
-      - ${USER}/config/plex/db:/config # plex database
-      - ${USER}/config/plex/transcode:/transcode # temp transcoded files
-      - ${HD}:/data # media library
+      - ${FOLDERUSER}/config/plex/db:/config # plex database
+      - ${FOLDERUSER}/config/plex/transcode:/transcode # temp transcoded files
+      - ${FOLDERHD}:/data # media library
 
   bazarr:
     container_name: bazarr
@@ -85,8 +85,8 @@ services:
       - TZ=${TZ} # timezone, defined in .env
       - UMASK_SET=022 #optional
     volumes:
-      - ${USER}/config/bazarr:/config # config files
-      - ${HD}/movies:/movies # movies folder
-      - ${HD}/tv:/tv # tv shows folder
+      - ${FOLDERUSER}/config/bazarr:/config # config files
+      - ${FOLDERHD}/movies:/movies # movies folder
+      - ${FOLDERHD}/tv:/tv # tv shows folder
     ports:
       - 6767:6767
