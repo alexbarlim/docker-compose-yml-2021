@@ -101,7 +101,6 @@ services:
       - TZ=${TZ} # timezone, defined in .env
     volumes:
       - ${FOLDERUSER}/config/nextcloud:/config # config files
-      - ${FOLDERHD}:/HD6TB
-      - ${FOLDERHD2}:/HD500GB
+      - ${FOLDERUSER}/config/nextcloud-data:/data
     ports:
       - 443:443
