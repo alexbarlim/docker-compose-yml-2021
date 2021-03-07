@@ -90,18 +90,28 @@ services:
     ports:
       - 6767:6767
       
-  nextcloud:
-    container_name: nextcloud
-    image: linuxserver/nextcloud
+  scrutiny:
+    container_name: scrutiny
+    image: ghcr.io/linuxserver/scrutiny
     restart: unless-stopped
     network_mode: host
+    cap_add:
+      - SYS_RAWIO
+      - SYS_ADMIN #optional
     environment:
       - PUID=${PUID} # default user id, defined in .env
       - PGID=${PGID} # default group id, defined in .env
       - TZ=${TZ} # timezone, defined in .env
+      - SCRUTINY_API_ENDPOINT=http://localhost:8080
+      - SCRUTINY_WEB=true
+      - SCRUTINY_COLLECTOR=true
     volumes:
-      - ${FOLDERUSER}/config/nextcloud:/config # config files
-      - ${FOLDERUSER}/config/nextcloud-data:/data
-      - ${FOLDERMEDIA}:/media
+      - ${FOLDERUSER}/config/scrutiny:/config # config files
+      - /run/udev:/run/udev:ro
+    devices:
+      - /dev/sda:/dev/sda
+      - /dev/sdb:/dev/sdb
+      - /dev/sdc:/dev/sdc
+      - /dev/nvme1n1:/dev/nvme1n1
     ports:
-      - 443:443
+      - 8080:8080
