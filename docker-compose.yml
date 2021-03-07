@@ -102,5 +102,6 @@ services:
     volumes:
       - ${FOLDERUSER}/config/nextcloud:/config # config files
       - ${FOLDERUSER}/config/nextcloud-data:/data
+      - ${FOLDERMEDIA}:/
     ports:
       - 443:443
