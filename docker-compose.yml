@@ -112,6 +112,5 @@ services:
       - /dev/sda:/dev/sda
       - /dev/sdb:/dev/sdb
       - /dev/sdc:/dev/sdc
-      - /dev/nvme1n1:/dev/nvme1n1
     ports:
       - 8080:8080
