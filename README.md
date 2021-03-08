@@ -72,3 +72,10 @@ sudo rm -rf /var/lib/docker
 ```sh
 sudo rm -rf /var/lib/containerd
 ```
+
+## Scrutiny
+Para fazer o diagnóstico pela primeira vez, rode o comando:
+```sh
+docker exec -it --user root scrutiny scrutiny-collector-metrics run
+```
+O comando rodará outro comando dentro do container. Ele serve como base para outros propósitos.
