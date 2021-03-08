@@ -61,6 +61,10 @@ docker image list
 docker container list -a
 ```
 
+### Remove todos os container sem as imagens baixadas
+```sh
+docker-compose down --remove-orphans
+```
 
 ## Para desinstalar e remover as pastas com as configurações, containers e imagens
 ```sh
