@@ -73,6 +73,21 @@ services:
       - ${FOLDERUSER}/config/plex/transcode:/transcode # temp transcoded files
       - ${FOLDERHD}:/data # media library
 
+  emby-server:
+    container_name: emby-server
+    image: ghcr.io/linuxserver/emby
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - PUID=${PUID} # default user id, defined in .env
+      - PGID=${PGID} # default group id, defined in .env
+      - TZ=${TZ} # timezone, defined in .env
+    volumes:
+      - ${FOLDERUSER}/config/emby:/config # plex database
+      - ${FOLDERHD}:/data # media library
+    ports:
+      - 8096:8096
+
   bazarr:
     container_name: bazarr
     image: linuxserver/bazarr
