@@ -61,17 +61,17 @@ services:
       - ${FOLDERHD}/movies:/movies # movies folder
       - ${FOLDERHD}/downloads:/downloads # download folder
 
-  plex-server:
-    container_name: plex-server
-    image: plexinc/pms-docker:latest
-    restart: unless-stopped
-    environment:
-      - TZ=${TZ} # timezone, defined in .env
-    network_mode: host
-    volumes:
-      - ${FOLDERUSER}/config/plex/db:/config # plex database
-      - ${FOLDERUSER}/config/plex/transcode:/transcode # temp transcoded files
-      - ${FOLDERHD}:/data # media library
+#  plex-server:
+#    container_name: plex-server
+#    image: plexinc/pms-docker:latest
+#    restart: unless-stopped
+#    environment:
+#      - TZ=${TZ} # timezone, defined in .env
+#    network_mode: host
+#    volumes:
+#      - ${FOLDERUSER}/config/plex/db:/config # plex database
+#      - ${FOLDERUSER}/config/plex/transcode:/transcode # temp transcoded files
+#      - ${FOLDERHD}:/data # media library
 
   emby-server:
     container_name: emby-server
